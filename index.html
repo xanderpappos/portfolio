@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xander Pappos | Music Video Director & Videographer (Gold Coast)</title>
+  <meta name="description" content="Gold Coast-based director, videographer, editor, and colourist specialising in music videos, cinematic visuals, live music events, promotional videos, and post-production." />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #111111;
+      --panel: rgba(255,255,255,0.05);
+      --panel-strong: rgba(255,255,255,0.08);
+      --text: #f5f2eb;
+      --muted: #a8a29e;
+      --line: rgba(255,255,255,0.12);
+      --accent: #d6b07a;
+      --accent-2: #8a6a42;
+      --max: 1240px;
+      --radius: 22px;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --transition: 260ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: fixed;
+      inset: 18px 0 auto;
+      z-index: 50;
+    }
+
+    .nav__inner {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      background: rgba(8,8,8,0.55);
+      backdrop-filter: blur(14px);
+      transition: var(--transition);
+    }
+
+    .nav.scrolled .nav__inner {
+      background: rgba(8,8,8,0.82);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand__mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #fff1d6);
+      box-shadow: 0 0 24px rgba(214,176,122,.45);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav__links a {
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background: var(--text);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .nav__links a:hover { color: var(--text); }
+    .nav__links a:hover::after { transform: scaleX(1); }
+
+    .nav__toggle {
+      display: none;
+      background: none;
+      color: var(--text);
+      border: 0;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: 120px 0 44px;
+      overflow: clip;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(214,176,122,.12), transparent 30%),
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.72) 55%, rgba(0,0,0,.94)),
+        url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/DSC00214%20edited%20again.jpg') center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      background: linear-gradient(180deg, transparent, var(--bg));
+    }
+
+    .hero__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: #e7dccd;
+      font-size: .85rem;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(214,176,122,.45);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.4rem, 9vw, 7.8rem);
+      line-height: .92;
+      letter-spacing: -.055em;
+      max-width: 9ch;
+    }
+
+    .hero p {
+      max-width: 58ch;
+      color: #d3ccc5;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin: 18px 0 28px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.2);
+    }
+
+    .btn--solid {
+      background: var(--text);
+      color: #080808;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .btn--solid:hover { background: #ffffff; }
+
+    .hero__card {
+      justify-self: end;
+      width: min(100%, 430px);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero__media {
+      position: relative;
+      aspect-ratio: 16/10;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.45)),
+        url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/DSC00214%20edited%20again.jpg') center/cover no-repeat;
+    }
+
+    .play-pill {
+      border: 0;
+      color: var(--text);
+      cursor: pointer;
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(10,10,10,.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.1);
+      font-size: .92rem;
+    }
+
+    .play-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--text);
+      color: #111;
+      font-size: .75rem;
+      padding-left: 2px;
+    }
+
+    .hero__meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 18px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .meta__item span {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
+      margin-bottom: 4px;
+    }
+
+    .meta__item strong {
+      font-size: .98rem;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--accent);
+      font-size: .78rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4.3vw, 3.35rem);
+      line-height: .96;
+      letter-spacing: -.045em;
+      max-width: 12ch;
+    }
+
+    .section-head p,
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      max-width: 56ch;
+      font-size: 1rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.2);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+    .card__number {
+      color: var(--accent);
+      font-size: .86rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .project {
+      transition: transform 300ms ease;
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--line);
+      background: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .project--large {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.74)),
+        url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .project--small {
+      min-height: 270px;
+    }
+
+    .project--photo {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)),
+        url('https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .project--event {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)),
+        url('https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .project__content {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 24px;
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.86));
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: #e4ddd3;
+      font-size: .8rem;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      letter-spacing: -.03em;
+    }
+
+    .project:hover {
+      transform: scale(1.02);
+    }
+
+    .project p {
+      margin: 0;
+      max-width: 42ch;
+      color: #cdc5bc;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .about__image,
+    .about__text {
+      border-radius: calc(var(--radius) + 2px);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
+
+    .about__image {
+      min-height: 640px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)),
+        url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/_IMG7639_VSCO%20edited.jpeg?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .about__text {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .about__copy h2 { max-width: 11ch; }
+    .about__copy p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 62ch;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.65rem;
+      margin-bottom: 6px;
+      letter-spacing: -.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .reel-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--line);
+      aspect-ratio: 16/8;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.56)),
+        url('https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: end;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .reel-panel__box {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.11);
+      background: rgba(10,10,10,.58);
+      backdrop-filter: blur(12px);
+      max-width: 440px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .process .card h3 { font-size: 1.05rem; }
+
+    .contact {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-panel,
+    .form-panel {
+      border-radius: calc(var(--radius) + 2px);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      padding: 26px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: .86rem;
+      margin-bottom: 5px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      font-size: .94rem;
+      color: #e9e4dc;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border-radius: 16px;
+      min-height: 54px;
+      padding: 0 16px;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    textarea {
+      min-height: 150px;
+      padding: 16px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(214,176,122,.7);
+      background: rgba(255,255,255,.06);
+    }
+
+    [data-video-src] {
+      cursor: pointer;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,.82);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox__panel {
+      width: min(100%, 1080px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #050505;
+      box-shadow: var(--shadow);
+    }
+
+    .lightbox__topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+
+    .lightbox__title {
+      font-size: .95rem;
+      color: var(--text);
+    }
+
+    .lightbox__close {
+      min-width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .lightbox video {
+      width: 100%;
+      max-height: 78vh;
+      background: #000;
+    }
+
+    footer {
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: #090909;
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer__links a:hover { color: var(--text); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero__grid,
+      .featured-grid,
+      .about,
+      .contact,
+      .section-head,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .services,
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero__card { justify-self: start; }
+      .about__image { min-height: 420px; }
+      .section-head { align-items: start; }
+    }
+
+    @media (max-width: 760px) {
+      .nav__toggle { display: inline-grid; place-items: center; }
+
+      .nav__links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 16px;
+        right: 16px;
+        display: grid;
+        gap: 0;
+        border-radius: 24px;
+        overflow: hidden;
+        background: rgba(8,8,8,.92);
+        border: 1px solid rgba(255,255,255,.1);
+        max-height: 0;
+        pointer-events: none;
+        transition: max-height var(--transition);
+      }
+
+      .nav__links a {
+        padding: 16px 18px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+
+      .nav__links a:last-child { border-bottom: 0; }
+      .nav__links.open { max-height: 400px; pointer-events: auto; }
+
+      .hero { min-height: auto; padding-top: 112px; }
+      .hero__meta,
+      .stats,
+      .form-grid,
+      .services,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { max-width: 100%; }
+      .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="siteNav">
+    <div class="nav__inner">
+      <a href="#home" class="brand" aria-label="Alex Pappos home">
+        <span class="brand__mark"></span>
+        <span>Xander Pappos</span>
+      </a>
+
+      <button class="nav__toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero__grid">
+      <div class="reveal">
+        <div class="eyebrow">Gold Coast Director • Cinematic Visuals</div>
+        <h1>VISUALS FOR MUSIC THAT HITS.</h1>
+        <p>
+          Xander Pappos is a SE QLD based director, videographer, editor, and colourist creating clean, cinematic visuals for music videos, live performances, artist-led campaigns, and promotional content.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--solid">View Projects</a>
+          <a href="#contact" class="btn">Book a Shoot</a>
+        </div>
+      </div>
+
+      <div class="hero__card reveal">
+        <div class="hero__media" style="background:
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.45)),
+        url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;">
+          <button class="play-pill" type="button" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee - Melbourne Afterparty Recap" aria-label="Play featured showcase">
+            <span class="play-icon">▶</span>
+            <span>Featured Showcase</span>
+          </button>
+        </div>
+        <div class="hero__meta">
+          <div class="meta__item">
+            <span>Artist</span>
+            <strong>Swae Lee</strong>
+          </div>
+          <div class="meta__item">
+            <span>Type</span>
+            <strong>Recap</strong>
+          </div>
+          <div class="meta__item">
+            <span>Date</span>
+            <strong>08/03/2026</strong>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Services</span>
+            <h2>Built for artists, releases, and live moments.</h2>
+          </div>
+          <p>From concept-driven music videos to clean artist press shots and polished colour work, the focus is simple: make the visual world feel intentional, premium, and memorable.</p>
+        </div>
+
+        <div class="services">
+          <article class="card reveal">
+            <span class="card__number">01</span>
+            <h3>Music Videos</h3>
+            <p>Performance-driven and concept-led visuals designed to elevate songs, releases, and artist identity.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">02</span>
+            <h3>Artist Photography</h3>
+            <p>Press shots, covers, promo images, and social-first stills with a cinematic, clean, high-end look.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">03</span>
+            <h3>Live Music Coverage</h3>
+            <p>Fast-moving coverage for gigs, launches, backstage moments, and events that need energy and atmosphere.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">04</span>
+            <h3>Promotional Videos</h3>
+            <p>Clean, cinematic promotional visuals for launches, campaigns, products, and artist-led brand content.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Selected Work</span>
+            <h2>Projects across music videos, live performance, and artist visuals.</h2>
+          </div>
+          <a href="#contact" class="btn">Start a Project</a>
+        </div>
+
+        <div class="featured-grid">
+          <article class="project project--large reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.74)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;">
+            <div class="project__content">
+              <span class="tag">Featured Showreel</span>
+              <h3>Swae Lee - Melbourne Afterparty Recap</h3>
+              
+              <button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee - Melbourne Afterparty Recap">Watch Project</button>
+            </div>
+          </article>
+
+          <div class="stack">
+            <article class="project project--small project--photo reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/sino%20rollout%20preview.jpg') center/cover no-repeat;">
+              <div class="project__content">
+                <span class="tag">Promotional Video</span>
+                <h3>sino! - ADONIS (Official Album Rollout)</h3>
+                
+                <button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/sino!%20-%20ADONIS%20album%20promo%20(ASL)%20rush%201.mov" data-video-title="sino! - ADONIS (Official Album Rollout)">Watch Project</button>
+              </div>
+            </article>
+
+            <article class="project project--small project--event reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/lonely%20souljaz%20tour%20still.jpg') center/cover no-repeat;">
+              <div class="project__content">
+                <span class="tag">Live Event</span>
+                <h3>THE LONELY SOULJAZ TOUR - Brisbane Show Recap</h3>
+                
+                <button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/The%20Lonely%20Souljas%20Tour%20-%20Brisbane%20rush%201.mp4.mov" data-video-title="THE LONELY SOULJAZ TOUR - Brisbane Show Recap">Watch Project</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="about__image reveal" aria-hidden="true" style="background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/_IMG7639_VSCO%20edited.jpeg	') center/cover no-repeat;"></div>
+
+        <div class="about__text reveal">
+          <div class="about__copy">
+            <span class="kicker">About</span>
+            <h2>Visual storytelling with edge, polish, and restraint.</h2>
+            <p>Xander Pappos creates music-focused visuals that feel elevated without becoming overdesigned. The style leans clean, cinematic, and culture-aware, shaped by rap and R&amp;B aesthetics but flexible across live performance, portraits, promotional work, and rollout content.</p>
+            <p>Whether the brief is a stripped-back performance clip, a full music video concept, artist stills, promo content, or post-production finishing, the goal is the same: make the work feel premium, current, and true to the artist.</p>
+            
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Music-First</strong>
+              <span>Concepts shaped around tracks, energy, and audience.</span>
+            </div>
+            <div class="stat">
+              <strong>Fast Turnaround</strong>
+              <span>Built for releases, promos, and social cycles.</span>
+            </div>
+            <div class="stat">
+              <strong>Premium Finish</strong>
+              <span>Editing and colour work that ties the brand together.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="showreel">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Showreel</span>
+            <h2>Swae Lee - Melbourne AU</h2>
+          </div>
+          <p>8th of March 2026 - Melbourne, AU</p>
+        </div>
+
+        <div class="reel-panel reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.56)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;">
+          <div class="reel-panel__box">
+            <span class="tag">Featured Showreel</span>
+            <h3 style="margin:12px 0 10px;font-size:1.5rem;letter-spacing:-.03em;">Swae Lee - Melbourne Afterparty Recap</h3>
+            <div style="margin-top:14px;"><button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee - Melbourne Afterparty Recap">Watch Showreel</button></div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card reveal">
+            <span class="card__number">Editing</span>
+            <h3>Music-driven pacing</h3>
+            <p>Cuts designed to support rhythm, momentum, and performance rather than overcomplicate the frame.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">Colour</span>
+            <h3>Textured, controlled grades</h3>
+            <p>Balanced contrast, skin tones, and atmosphere that keep visuals feeling elevated and release-ready.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact">
+        <div class="contact-panel reveal">
+          <span class="kicker">Contact</span>
+          <h2 style="max-width:10ch;">Let’s build something that feels like the record.</h2>
+          <p class="lede">Use the form to enquire about music videos, artist photography, event coverage, editing, or colour work. Replace the placeholders below with Xander’s real contact details later.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Email</span>
+              <strong>contact.xanderpappos@gmail.com</strong>
+            </div>
+            <div class="contact-item">
+              <span>Instagram</span>
+              <strong>@xanderpappos</strong>
+            </div>
+            <div class="contact-item">
+              <span>TikTok</span>
+              <strong>@xanderpappos</strong>
+            </div>
+            <div class="contact-item">
+              <span>Location</span>
+              <strong>Gold Coast, Australia</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-panel reveal">
+          <form action="https://formsubmit.co/contact.xanderpappos@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New website enquiry - Xander Pappos" />
+            <input type="hidden" name="_captcha" value="false" />
+            <div class="form-grid">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="Your email" required />
+              </label>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                Project Type
+                <select name="project_type" required>
+                  <option>Music Video</option>
+                  <option>Promotional Video</option>
+                  <option>Artist Photography</option>
+                  <option>Full Promotional Rollout (Package)</option>
+                  <option>Live Music Event</option>
+                  <option>Editing</option>
+                  <option>Colour Grading</option>
+                </select>
+              </label>
+              <label>
+                Estimated Budget
+                <select name="budget" required>
+                  <option>$100 – $350</option>
+                  <option>$350 – $500</option>
+                  <option>$500 – $1,000</option>
+                  <option>$1,000 – $2,000</option>
+                  <option>$2,000 ></option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Message
+              <textarea name="message" placeholder="Tell Xander about the song, project, timeline, and any references." required></textarea>
+            </label>
+
+            <button type="submit" class="btn btn--solid">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="videoLightbox" aria-hidden="true">
+    <div class="lightbox__panel">
+      <div class="lightbox__topbar">
+        <div class="lightbox__title" id="lightboxTitle">Project Video</div>
+        <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close video">✕</button>
+      </div>
+      <video id="lightboxVideo" controls controlsList="nodownload noplaybackrate" playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer__inner" style="flex-direction:column; align-items:center; text-align:center;">
+      <div>© 2026 Xander Pappos</div>
+      <div>ABN: 87 645 351 688</div>
+      <div class="footer__links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://instagram.com/xanderpappos" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://tiktok.com/@xanderpappos" target="_blank" rel="noreferrer">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('siteNav');
+    const lightbox = document.getElementById('videoLightbox');
+    const lightboxVideo = document.getElementById('lightboxVideo');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 12);
+    });
+
+    menuToggle?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '✕' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const openVideoButtons = document.querySelectorAll('[data-video-src]');
+
+    const openLightbox = (src, title) => {
+      lightboxVideo.pause();
+      lightboxVideo.src = src;
+      lightboxTitle.textContent = title || 'Project Video';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxVideo.play().catch(() => {});
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxVideo.pause();
+      lightboxVideo.removeAttribute('src');
+      lightboxVideo.load();
+      document.body.style.overflow = '';
+    };
+
+    openVideoButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        openLightbox(button.dataset.videoSrc, button.dataset.videoTitle);
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
