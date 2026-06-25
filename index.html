@@ -155,7 +155,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: end;
     }
@@ -246,41 +246,36 @@
 
     .hero__media {
       position: relative;
+      overflow: hidden
+      line height: 0;
+      boarder-radius: 16px;
       aspect-ratio: 16/10;
       background:
         linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.45)),
         url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/DSC00214%20edited%20again.jpg') center/cover no-repeat;
     }
 
-    .play-pill {
-      border: 0;
-      color: var(--text);
-      cursor: pointer;
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(10,10,10,.72);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,.1);
-      font-size: .92rem;
-    }
+.hero__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .play-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--text);
-      color: #111;
-      font-size: .75rem;
-      padding-left: 2px;
-    }
+.sound-toggle {
+  position: absolute;
+  bottom: 8px; 
+  right: 8px;
+
+  z-index: 5;
+
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
 
     .hero__meta {
       display: grid;
@@ -832,14 +827,16 @@
       </div>
 
       <div class="hero__card reveal">
-        <div class="hero__media" style="background:
-        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.45)),
-        url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;">
-          <button class="play-pill" type="button" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee - Melbourne Afterparty Recap" aria-label="Play featured showcase">
-            <span class="play-icon">▶</span>
-            <span>Featured Showcase</span>
-          </button>
-        </div>
+       <div class="hero__media style="max-width: 1400px; width: 95%; margin: 0 auto;">
+         <video id="heroVideo" class="hero__video" autoplay muted loop playsinline>
+           <source src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov">
+         </video>
+
+         <button id="soundToggle" class="sound-toggle">
+              🔇
+         </button>
+       </div>
+
         <div class="hero__meta">
           <div class="meta__item">
             <span>Artist</span>
@@ -847,7 +844,7 @@
           </div>
           <div class="meta__item">
             <span>Type</span>
-            <strong>Recap</strong>
+            <strong>Event Recap</strong>
           </div>
           <div class="meta__item">
             <span>Date</span>
@@ -1176,5 +1173,15 @@
       }
     });
   </script>
+
+<script>
+  const video = document.getElementById("heroVideo");
+  const button = document.getElementById("soundToggle");
+
+  button.addEventListener("click", () => {
+    video.muted = !video.muted;
+    button.textContent = video.muted ? "🔇" : "🔊";
+  });
+</script>
 </body>
 </html>
