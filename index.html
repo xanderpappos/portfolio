@@ -135,7 +135,7 @@
       min-height: 100svh;
       display: grid;
       align-items: end;
-      padding: 120px 0 44px;
+      padding: 120px 0 20px;
       overflow: clip;
       background:
         radial-gradient(circle at 70% 20%, rgba(214,176,122,.12), transparent 30%),
@@ -147,7 +147,7 @@
       content: "";
       position: absolute;
       inset: auto 0 0;
-      height: 180px;
+      height: 100px;
       background: linear-gradient(180deg, transparent, var(--bg));
     }
 
@@ -301,6 +301,10 @@
       padding: 88px 0;
     }
 
+    #projects {
+      padding-top: 24px;
+    }
+
     .section-head {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -336,7 +340,7 @@
 
     .services {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
@@ -456,6 +460,75 @@
       color: #cdc5bc;
     }
 
+    .grid-projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      grid-auto-flow: dense;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: calc(var(--radius) + 2px);
+      border: 1px solid var(--line);
+      background: #111 center/cover no-repeat;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 300ms ease;
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    .tile--wide {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+
+    .tile--tall {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+
+    .tile:hover {
+      transform: scale(1.02);
+    }
+
+    .tile--video::after {
+      content: "▶";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10,10,10,.55);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      font-size: 1.05rem;
+      backdrop-filter: blur(6px);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .tile--video:hover::after {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: rgba(10,10,10,.72);
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      background: #000;
+      display: block;
+    }
+
     .about {
       display: grid;
       grid-template-columns: .95fr 1.05fr;
@@ -517,6 +590,53 @@
     .stat span {
       color: var(--muted);
       font-size: .9rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .review-card {
+      padding: 26px;
+      border-radius: calc(var(--radius) + 2px);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .review-card__stars {
+      color: var(--accent);
+      letter-spacing: .12em;
+      font-size: 1rem;
+    }
+
+    .review-card__text {
+      color: #cdc5bc;
+      line-height: 1.55;
+      font-size: .96rem;
+      margin: 0;
+    }
+
+    .review-card__author {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .review-card__name {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .review-card__role {
+      color: var(--muted);
+      font-size: .82rem;
     }
 
     .reel-panel {
@@ -738,14 +858,25 @@
         grid-template-columns: 1fr;
       }
 
-      .services,
       .process {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .hero__card { justify-self: start; }
       .about__image { min-height: 420px; }
       .section-head { align-items: start; }
+
+      .grid-projects {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+      }
+
+      .tile--wide { grid-column: span 2; grid-row: span 1; }
+      .tile--tall { grid-column: span 1; grid-row: span 2; }
     }
 
     @media (max-width: 760px) {
@@ -789,6 +920,18 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .grid-projects {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 260px;
+      }
+
+      .tile,
+      .tile--tall,
+      .tile--wide {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
     }
   </style>
 </head>
@@ -804,9 +947,9 @@
 
       <div class="nav__links" id="navLinks">
         <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
         <a href="#about">About</a>
-        <a href="#showreel">Showreel</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -816,7 +959,7 @@
     <div class="container hero__grid">
       <div class="reveal">
         <div class="eyebrow">Gold Coast Director • Cinematic Visuals</div>
-        <h1>RELIVE EVERY MOMENT, PERFECTLY.</h1>
+        <h1>RELIVE NOSTALGIC MOMENTS, PERFECTLY</h1>
         <p>
           Xander Pappos is a Queensland based director, videographer, editor, and colourist creating clean, cinematic visuals for music videos, live performances, promotional content, and more.
         </p>
@@ -827,7 +970,7 @@
       </div>
 
       <div class="hero__card reveal">
-       <div class="hero__media style="max-width: 1400px; width: 95%; margin: 0 auto;">
+       <div class="hero__media" style="max-width: 1400px; width: 95%; margin: 0 auto;">
          <video id="heroVideo" class="hero__video" autoplay muted loop playsinline>
            <source src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov">
          </video>
@@ -852,84 +995,83 @@
           </div>
         </div>
       </div>
-      </div>
     </div>
   </header>
 
   <main>
-    <section id="services">
+    <section id="projects">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="kicker">Services</span>
-            <h2>Curating a time capsule for every special moment.</h2>
-          </div>
-          <p>We focus on helping you relive your most meaningful moments by capturing every detail with intention. From concept-driven music videos to cinematic, professional visuals for brands and businesses of all scales, we create work that enhances quality while preserving that authentic, feel-good energy.</p>
+        <div class="grid-projects">
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov"></div>
+
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20Leon%20Thomas%20Afterparty%20recap%20rush%201_1.16.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/Leon%20Thomas%20Afterparty%20recap%20rush%201.mp4"></div>
+
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/boy.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/boy.png"></div>
+
+          <div class="tile tile--video tile--wide reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20hc%20grillz%20campaign%20-%20national%20treasures%20rush%202_1.39.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/hc%20grillz%20campaign%20-%20national%20treasures%20rush%202.mp4"></div>
+
+          <div class="tile tile--video tile--tall reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/lonely%20souljaz%20tour%20still.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/The%20Lonely%20Souljas%20Tour%20-%20Brisbane%20rush%201.mp4.mov"></div>
+
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_02251%20edited.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_02251%20edited.png"></div>
+
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20PHA%243%200NE%20-%203AM%20SOLO%20EVENT%20rush%201_1.9.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/PHA%243%200NE%20-%203AM%20SOLO%20EVENT%20rush%201.mp4"></div>
+
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20YOUNGIE%20IN%20MELB%20-%20THREE%20NIGHTS%20rush%201_1.19.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/YOUNGIE%20IN%20MELB%20-%20THREE%20NIGHTS%20rush%201.mp4"></div>
+
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/P1001658%20edited.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/P1001658%20edited.png"></div>
+
+          <div class="tile tile--video tile--wide reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20BENZO%20-%20LABRADOR%20Official%20Music%20Video_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/BENZO%20-%20LABRADOR%20Official%20Music%20Video.mp4"></div>
+
+          <div class="tile tile--video tile--tall reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_4779.png')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/Break%20the%20Speakers%20(Trailer).mp4"></div>
+
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_00318%20%40davesummerofficial%20himself.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_00318%20%40davesummerofficial%20himself.png"></div>
+
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20HeyJune%20-%20london%20reel%201%20rush%201_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/HeyJune%20-%20london%20reel%201%20rush%201.mp4"></div>
+
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20closefriends%20first%20event%20recap%20-%20VHS%20rush%201_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/closefriends%20first%20event%20recap%20-%20VHS%20rush%201.mov"></div>
         </div>
 
-        <div class="services">
-          <article class="card reveal">
-            <span class="card__number">01</span>
-            <h3>Music Focused</h3>
-            <p>Prioritising in music videos, live performances, promotional content, and more.</p>
-          </article>
-          <article class="card reveal">
-            <span class="card__number">02</span>
-            <h3>Commercial</h3>
-            <p>Specified for businesses and similar clientele, we offer a team to ensure your needs are met to detail.</p>
-          </article>
-          <article class="card reveal">
-            <span class="card__number">03</span>
-            <h3>Photography</h3>
-            <p>Press shots, covers, promo images, and social-first stills with a cinematic, clean, high-end look.</p>
-          </article>
-          <article class="card reveal">
-            <span class="card__number">04</span>
-            <h3>Event Coverage</h3>
-            <p>Visual production for concerts, fashion stalls, clothing brand launches, and more.</p>
-          </article>
+        <div style="display:flex; justify-content:center; margin-top:32px;">
+          <a href="#contact" class="btn">Start a Project</a>
         </div>
       </div>
     </section>
 
-    <section id="projects">
+    <section id="reviews">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="kicker">Selected Work</span>
-            <h2>Music videos, live performances, and artist visuals.</h2>
+            <span class="kicker">Reviews</span>
+            <h2>What clients are saying</h2>
           </div>
-          <a href="#contact" class="btn">Start a Project</a>
         </div>
 
-        <div class="featured-grid">
-          <article class="project project--large reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.74)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;">
-            <div class="project__content">
-              <span class="tag">Featured Showreel</span>
-              <h3>Swae Lee - Melbourne Afterparty Recap</h3>
-              
-              <button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee - Melbourne Afterparty Recap">Watch Project</button>
+        <div class="reviews-grid">
+          <div class="review-card reveal">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">Really good on communication, very reliable, and delivered top quality work. Very happy with the results, keep up the good work.</p>
+            <div class="review-card__author">
+              <span class="review-card__name">Anh</span>
+              <span class="review-card__role">ilovenewsoul</span>
             </div>
-          </article>
+          </div>
 
-          <div class="stack">
-            <article class="project project--small project--photo reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/sino%20rollout%20preview.jpg') center/cover no-repeat;">
-              <div class="project__content">
-                <span class="tag">Promotional Video</span>
-                <h3>sino! - ADONIS (Official Album Rollout)</h3>
-                
-                <button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/sino!%20-%20ADONIS%20album%20promo%20(ASL)%20rush%201.mov" data-video-title="sino! - ADONIS (Official Album Rollout)">Watch Project</button>
-              </div>
-            </article>
+          <div class="review-card reveal">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">Add client review here.</p>
+            <div class="review-card__author">
+              <span class="review-card__name">Jay</span>
+              <span class="review-card__role">Havana RnB Nightclub</span>
+            </div>
+          </div>
 
-            <article class="project project--small project--event reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/lonely%20souljaz%20tour%20still.jpg') center/cover no-repeat;">
-              <div class="project__content">
-                <span class="tag">Live Event</span>
-                <h3>THE LONELY SOULJAZ TOUR - Brisbane Show Recap</h3>
-                
-                <button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/The%20Lonely%20Souljas%20Tour%20-%20Brisbane%20rush%201.mp4.mov" data-video-title="THE LONELY SOULJAZ TOUR - Brisbane Show Recap">Watch Project</button>
-              </div>
-            </article>
+          <div class="review-card reveal">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">Add client review here.</p>
+            <div class="review-card__author">
+              <span class="review-card__name">Lucky</span>
+              <span class="review-card__role">OMBRÉ STRADÁ</span>
+            </div>
           </div>
         </div>
       </div>
@@ -942,9 +1084,8 @@
         <div class="about__text reveal">
           <div class="about__copy">
             <span class="kicker">About</span>
-            <h2>Visual storytelling that moves with the music.</h2>
-            <p </p>
-            <p>Xander centers on emotion-focused visuals that feel elevated without being overdone. The style leans clean, cinematic, and culture-aware, shaped by rap and R&B aesthetics but flexible across live performances, portraits, promotional work, and rollout content.</p>
+            <h2 style="margin-bottom:18px;">Stories shaped by sound</h2>
+            <p>Xander centers on emotion-focused visuals that feel elevated without being overdone. The style leans clean, cinematic, and culture-aware, shaped by rap and R&B aesthetics but flexible across films, live performances, portraits, promotional work, and rollout content.</p>
             <p>Whether the brief is a full music video concept, artist stills, a cinematic deliverable, or post-production finishing, the goal is the same: we make the memory worth reliving.</p>
             
           </div>
@@ -952,7 +1093,7 @@
           <div class="stats">
             <div class="stat">
               <strong>Music-First</strong>
-              <span>Concepts shaped around tracks, energy, and audience.</span>
+              <span>Concepts shaped around tracks, energy, audience, and emotion.</span>
             </div>
             <div class="stat">
               <strong>Fast Turnaround</strong>
@@ -967,31 +1108,41 @@
       </div>
     </section>
 
-    <section id="showreel">
+    <section id="services">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="kicker">Showreel</span>
-            <h2>Swae Lee - Melbourne AU</h2>
+            <span class="kicker">Services</span>
+            <h2>Curating a time capsule for every special moment</h2>
           </div>
-          <p>8th of March 2026 - Melbourne, AU</p>
+          <p>We focus on helping you relive your most meaningful moments by capturing every detail with intention. From working directly with artists, DJs and clubs to cinematic, professional visuals for brands and businesses of all scales, we create work that enhances quality while preserving that authentic, feel-good energy.</p>
         </div>
 
-        <div class="reel-panel reveal" style="background: linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.56)), url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg') center/cover no-repeat;">
-          <div class="reel-panel__box">
-            <span class="tag">Featured Showreel</span>
-            <h3 style="margin:12px 0 10px;font-size:1.5rem;letter-spacing:-.03em;">Swae Lee - Melbourne Afterparty Recap</h3>
-            <div style="margin-top:14px;"><button type="button" class="btn" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee - Melbourne Afterparty Recap">Watch Showreel</button></div>
-          </div>
+        <div class="services">
+          <article class="card reveal">
+            <span class="card__number">01</span>
+            <h3>Music Focused</h3>
+            <p>Specialising in production for shows, clubs, touring artists and DJ's, promo content, etc.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">02</span>
+            <h3>Commercial</h3>
+            <p>Specified for businesses and similar clientele, we offer a team to ensure your needs are met to detail.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">03</span>
+            <h3>Photography</h3>
+            <p>Press shots, covers, promo images, and social-first stills with a cinematic, clean, high-end look.</p>
+          </article>
         </div>
+      </div>
     </section>
 
     <section id="contact">
       <div class="container contact">
         <div class="contact-panel reveal">
           <span class="kicker">Contact</span>
-          <h2 style="max-width:10ch;">Let’s curate something that relives your moment.</h2>
-          <p </p>
+          <h2 style="max-width:10ch; margin-bottom:18px;">Let’s curate something that relives your moment</h2>
           <p class="lede">Use the form to enquire about music videos, artist photography, event coverage, and more.</p>
 
           <div class="contact-list">
@@ -1033,11 +1184,13 @@
               <label>
                 Project Type
                 <select name="project_type" required>
-                  <option>Music Video</option>
+                  <option>Media</option>
+                  <option>Show / Event Recap</option>
                   <option>Promotional Video</option>
-                  <option>Artist Photography</option>
+                  <option>Wedding</option>
+                  <option>Music Video</option>
+                  <option>Photography</option>
                   <option>Full Promotional Rollout (Package)</option>
-                  <option>Live Music Event</option>
                   <option>Editing</option>
                   <option>Colour Grading</option>
                   <option>Other / Specific</option>
@@ -1046,10 +1199,11 @@
               <label>
                 Estimated Budget
                 <select name="budget" required>
-                  <option>$100 – $350</option>
-                  <option>$350 – $500</option>
-                  <option>$500 – $1,000</option>
-                  <option>$1,000 – $2,000</option>
+                  <option>$100 - $250</option>
+                  <option>$250 - $500</option>
+                  <option>$500 - $1,000</option>
+                  <option>$1,000 - $1,500</option>
+                  <option>$1,500 - $2,000</option>
                   <option>$2,000 ></option>
                   <option>Other / Specific</option>
                 </select>
@@ -1078,6 +1232,16 @@
     </div>
   </div>
 
+  <div class="lightbox" id="imageLightbox" aria-hidden="true">
+    <div class="lightbox__panel">
+      <div class="lightbox__topbar">
+        <div class="lightbox__title">Project Photo</div>
+        <button class="lightbox__close" id="imageLightboxClose" type="button" aria-label="Close image">✕</button>
+      </div>
+      <img id="lightboxImage" src="" alt="Project photo" />
+    </div>
+  </div>
+
   <footer>
     <div class="container footer__inner" style="flex-direction:column; align-items:center; text-align:center;">
       <div>© 2026 Xander Pappos</div>
@@ -1085,8 +1249,9 @@
       <div class="footer__links">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
         <a href="#about">About</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
         <a href="https://instagram.com/xanderpappos" target="_blank" rel="noreferrer">Instagram</a>
         <a href="https://tiktok.com/@xanderpappos" target="_blank" rel="noreferrer">TikTok</a>
@@ -1132,7 +1297,9 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    const projectTiles = Array.from(document.querySelectorAll('.grid-projects .tile'));
     const openVideoButtons = document.querySelectorAll('[data-video-src]');
+    let currentTileIndex = -1;
 
     const openLightbox = (src, title) => {
       lightboxVideo.pause();
@@ -1155,21 +1322,93 @@
 
     openVideoButtons.forEach(button => {
       button.addEventListener('click', () => {
+        currentTileIndex = projectTiles.indexOf(button);
         openLightbox(button.dataset.videoSrc, button.dataset.videoTitle);
       });
     });
 
-    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', () => { currentTileIndex = -1; closeLightbox(); });
 
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) {
+        currentTileIndex = -1;
         closeLightbox();
       }
     });
 
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const imageLightboxClose = document.getElementById('imageLightboxClose');
+    const openImageButtons = document.querySelectorAll('[data-image-src]');
+
+    const openImageLightbox = (src) => {
+      lightboxImage.src = src;
+      imageLightbox.classList.add('open');
+      imageLightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeImageLightbox = () => {
+      imageLightbox.classList.remove('open');
+      imageLightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.removeAttribute('src');
+      document.body.style.overflow = '';
+    };
+
+    openImageButtons.forEach(tile => {
+      tile.addEventListener('click', () => {
+        currentTileIndex = projectTiles.indexOf(tile);
+        openImageLightbox(tile.dataset.imageSrc);
+      });
+    });
+
+    imageLightboxClose.addEventListener('click', () => { currentTileIndex = -1; closeImageLightbox(); });
+
+    imageLightbox.addEventListener('click', (event) => {
+      if (event.target === imageLightbox) {
+        currentTileIndex = -1;
+        closeImageLightbox();
+      }
+    });
+
+    const openTileAtIndex = (index) => {
+      const tile = projectTiles[index];
+      if (!tile) return;
+      const isVideoOpen = lightbox.classList.contains('open');
+      const isImageOpen = imageLightbox.classList.contains('open');
+
+      if (tile.dataset.videoSrc) {
+        if (isImageOpen) closeImageLightbox();
+        currentTileIndex = index;
+        openLightbox(tile.dataset.videoSrc, tile.dataset.videoTitle);
+      } else if (tile.dataset.imageSrc) {
+        if (isVideoOpen) closeLightbox();
+        currentTileIndex = index;
+        openImageLightbox(tile.dataset.imageSrc);
+      }
+    };
+
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
-        closeLightbox();
+      const videoOpen = lightbox.classList.contains('open');
+      const imageOpen = imageLightbox.classList.contains('open');
+
+      if (event.key === 'Escape') {
+        if (videoOpen) { currentTileIndex = -1; closeLightbox(); }
+        if (imageOpen) { currentTileIndex = -1; closeImageLightbox(); }
+        return;
+      }
+
+      if (!videoOpen && !imageOpen) return;
+      if (currentTileIndex === -1) return;
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        const nextIndex = (currentTileIndex + 1) % projectTiles.length;
+        openTileAtIndex(nextIndex);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        const prevIndex = (currentTileIndex - 1 + projectTiles.length) % projectTiles.length;
+        openTileAtIndex(prevIndex);
       }
     });
   </script>
