@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xander Pappos | Creative Director & Videographer</title>
+  <title>Xander Pappos | Visual Director & Videographer</title>
   <link rel="icon" type="image/png" href="/xplogo.png?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="/xplogo.png?v=2">
-  <meta name="description" content="Portfolio of Gold Coast-based creative director and videographer" />
+  <meta name="description" content="Portfolio of Gold Coast-based director and videographer" />
   <style>
     :root {
       --bg: #0a0a0a;
@@ -550,6 +550,47 @@
       display: block;
     }
 
+    .review-modal__body {
+      padding: 26px 28px 30px;
+    }
+
+    .review-modal__stars {
+      color: var(--accent);
+      letter-spacing: .12em;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .review-modal__text p {
+      color: #cdc5bc;
+      line-height: 1.65;
+      font-size: .98rem;
+      margin: 0 0 16px;
+    }
+
+    .review-modal__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-modal__author {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .review-modal__name {
+      font-weight: 600;
+      font-size: .98rem;
+    }
+
+    .review-modal__role {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
     .about {
       display: grid;
       grid-template-columns: .95fr 1.05fr;
@@ -566,7 +607,7 @@
     }
 
     .about__image {
-      min-height: 640px;
+      min-height: 480px;
       background:
         linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)),
         url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/_IMG7639_VSCO%20edited.jpeg?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
@@ -576,15 +617,15 @@
       padding: 28px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 32px;
+      justify-content: center;
     }
 
     .about__copy h2 { max-width: 11ch; }
     .about__copy p {
-      margin: 0 0 16px;
+      margin: 0 0 18px;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
       max-width: 62ch;
     }
 
@@ -640,7 +681,30 @@
       color: #cdc5bc;
       line-height: 1.55;
       font-size: .96rem;
-      margin: 0;
+    }
+
+    .review-card__text p {
+      margin: 0 0 12px;
+    }
+
+    .review-card__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-card__toggle {
+      align-self: flex-start;
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .review-card__toggle:hover {
+      text-decoration: underline;
     }
 
     .review-card__author {
@@ -786,8 +850,8 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background: rgba(0,0,0,.82);
-      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.5);
+      backdrop-filter: blur(18px);
       z-index: 100;
     }
 
@@ -982,7 +1046,7 @@
         <div class="eyebrow">Gold Coast Director • Cinematic Visuals</div>
         <h1>RELIVE NOSTALGIC MOMENTS, PERFECTLY</h1>
         <p>
-          Xander Pappos is a Queensland based director, videographer, editor, and colourist creating clean, cinematic visuals for events, live performances, promotional content, and more.
+          Xander Pappos is a Queensland based director, videographer, editor, and colourist creating clean, cinematic visuals for music videos, live performances, promotional content, and more.
         </p>
         <div class="hero__actions">
           <a href="#projects" class="btn btn--solid">View Projects</a>
@@ -1116,11 +1180,38 @@
 
           <div class="review-card reveal">
             <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Xander's understanding of our vision will never fail to reassure us. He always delivers high quality work and brings our brand to life.</p>
+            <div class="review-card__text">
+              <p>Working with Xander has genuinely been a great experience. What I appreciate most is that he doesn’t just show up, film something and hand over an edit, he actually takes the time to understand the vision, the story and what you’re trying to achieve with the final product.</p>
+              <div class="review-card__more" hidden>
+                <p>I’ve worked with him across different projects for OMBRÉ STRADÀ, and he’s consistently been easy to communicate with, open to feedback and willing to go back and forth creatively until we’re both happy with the result. At the same time, he brings his own ideas and perspective to the table, which is exactly what you want from someone in a creative role.</p>
+                <p>His understanding of cinematography, pacing and storytelling has continued to improve with every project, and you can tell he genuinely cares about the quality of his work rather than just getting something finished. Even when I’ve given him quite detailed briefs, he’s been able to understand what I’m envisioning and translate that into something that still feels like his own work creatively.</p>
+                <p>Beyond the work itself, Xander is reliable, passionate about what he does and genuinely enjoyable to work with. I’m looking forward to continuing to work with him as both of our creative projects grow, and I’d have no hesitation recommending him to anyone looking for a videographer or cinematographer who actually cares about bringing their vision to life.</p>
+              </div>
+            </div>
+            <button type="button" class="review-card__toggle">Read more</button>
             <div class="review-card__author">
               <span class="review-card__name">Lucky</span>
-              <span class="review-card__role">OMBRÉ STRADÁ</span>
+              <span class="review-card__role">OMBRÉ STRADÀ</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats-highlights">
+      <div class="container">
+        <div class="stats">
+          <div class="stat reveal">
+            <strong>Culture-Aware</strong>
+            <span>Concepts shaped by culture, energy, audience, and emotion.</span>
+          </div>
+          <div class="stat reveal">
+            <strong>Fast Turnaround</strong>
+            <span>Built for releases, promos, and social cycles.</span>
+          </div>
+          <div class="stat reveal">
+            <strong>Premium Finish</strong>
+            <span>Editing and colour work that ties the brand together.</span>
           </div>
         </div>
       </div>
@@ -1136,22 +1227,6 @@
             <h2 style="margin-bottom:18px;">Stories shaped by sound</h2>
             <p>Xander creates cinematic, emotion-driven visuals that feel elevated without feeling overdone. The work is clean, intentional, and culture-aware, shaped by a strong connection to music and a modern visual style while remaining flexible across promotional and brand films, campaigns, live events, weddings, and artist-led projects.</p>
             <p>From music videos and artist content to DJ and club coverage, campaign packages, photography, and post-production through editing and colour grading, every project is approached with the same focus: creating visuals that capture how something felt, not just how it looked; making the memory worth reliving.</p>
-            
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <strong>Culture-Aware</strong>
-              <span>Concepts shaped by culture, energy, audience, and emotion.</span>
-            </div>
-            <div class="stat">
-              <strong>Fast Turnaround</strong>
-              <span>Built for releases, promos, and social cycles.</span>
-            </div>
-            <div class="stat">
-              <strong>Premium Finish</strong>
-              <span>Editing and colour work that ties the brand together.</span>
-            </div>
           </div>
         </div>
       </div>
@@ -1291,6 +1366,23 @@
         <button class="lightbox__close" id="imageLightboxClose" type="button" aria-label="Close image">✕</button>
       </div>
       <img id="lightboxImage" src="" alt="Project photo" />
+    </div>
+  </div>
+
+  <div class="lightbox" id="reviewLightbox" aria-hidden="true">
+    <div class="lightbox__panel" style="max-width:860px;">
+      <div class="lightbox__topbar">
+        <div class="lightbox__title">Client Review</div>
+        <button class="lightbox__close" id="reviewLightboxClose" type="button" aria-label="Close review">✕</button>
+      </div>
+      <div class="review-modal__body">
+        <div class="review-modal__stars" id="reviewLightboxStars"></div>
+        <div class="review-modal__text" id="reviewLightboxText"></div>
+        <div class="review-modal__author">
+          <span class="review-modal__name" id="reviewLightboxName"></span>
+          <span class="review-modal__role" id="reviewLightboxRole"></span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1463,6 +1555,55 @@
         event.preventDefault();
         const prevIndex = (currentTileIndex - 1 + projectTiles.length) % projectTiles.length;
         openTileAtIndex(prevIndex);
+      }
+    });
+
+    const reviewLightbox = document.getElementById('reviewLightbox');
+    const reviewLightboxClose = document.getElementById('reviewLightboxClose');
+    const reviewLightboxStars = document.getElementById('reviewLightboxStars');
+    const reviewLightboxText = document.getElementById('reviewLightboxText');
+    const reviewLightboxName = document.getElementById('reviewLightboxName');
+    const reviewLightboxRole = document.getElementById('reviewLightboxRole');
+
+    const openReviewLightbox = (card) => {
+      const stars = card.querySelector('.review-card__stars').textContent;
+      const excerpt = card.querySelector('.review-card__text > p').innerHTML;
+      const more = card.querySelector('.review-card__more');
+      const name = card.querySelector('.review-card__name').textContent;
+      const role = card.querySelector('.review-card__role').textContent;
+
+      reviewLightboxStars.textContent = stars;
+      reviewLightboxText.innerHTML = '<p>' + excerpt + '</p>' + (more ? more.innerHTML : '');
+      reviewLightboxName.textContent = name;
+      reviewLightboxRole.textContent = role;
+
+      reviewLightbox.classList.add('open');
+      reviewLightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeReviewLightbox = () => {
+      reviewLightbox.classList.remove('open');
+      reviewLightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.review-card__toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.review-card');
+        openReviewLightbox(card);
+      });
+    });
+
+    reviewLightboxClose.addEventListener('click', closeReviewLightbox);
+
+    reviewLightbox.addEventListener('click', (event) => {
+      if (event.target === reviewLightbox) closeReviewLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && reviewLightbox.classList.contains('open')) {
+        closeReviewLightbox();
       }
     });
   </script>
