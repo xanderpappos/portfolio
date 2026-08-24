@@ -303,6 +303,11 @@
 
     #projects {
       padding-top: 24px;
+      padding-bottom: 40px;
+    }
+
+    #reviews {
+      padding-top: 40px;
     }
 
     .section-head {
@@ -494,6 +499,22 @@
 
     .tile:hover {
       transform: scale(1.02);
+    }
+
+    .tile__caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 34px 16px 14px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.8) 70%);
+      color: #fff;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.3;
+      pointer-events: none;
     }
 
     .tile--video::after {
@@ -1002,33 +1023,61 @@
     <section id="projects">
       <div class="container">
         <div class="grid-projects">
-          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov"></div>
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_8460.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/SWAE%20LEE%20RECAP%20MELB%20rush%202.mov" data-video-title="Swae Lee Afterparty Recap in Melbourne">
+            <span class="tile__caption">Swae Lee Afterparty Recap in Melbourne</span>
+          </div>
 
-          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20Leon%20Thomas%20Afterparty%20recap%20rush%201_1.16.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/Leon%20Thomas%20Afterparty%20recap%20rush%201.mp4"></div>
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20Leon%20Thomas%20Afterparty%20recap%20rush%201_1.16.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/Leon%20Thomas%20Afterparty%20recap%20rush%201.mp4" data-video-title="Leon Thomas Afterparty Recap in Brisbane">
+            <span class="tile__caption">Leon Thomas Afterparty Recap in Brisbane</span>
+          </div>
 
-          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/boy.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/boy.png"></div>
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/boy.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/boy.png" data-image-title="Boy">
+            <span class="tile__caption">Boy</span>
+          </div>
 
-          <div class="tile tile--video tile--wide reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20hc%20grillz%20campaign%20-%20national%20treasures%20rush%202_1.39.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/hc%20grillz%20campaign%20-%20national%20treasures%20rush%202.mp4"></div>
+          <div class="tile tile--video tile--wide reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20hc%20grillz%20campaign%20-%20national%20treasures%20rush%202_1.39.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/hc%20grillz%20campaign%20-%20national%20treasures%20rush%202.mp4" data-video-title="HC Grillz Campaign">
+            <span class="tile__caption">HC Grillz Campaign</span>
+          </div>
 
-          <div class="tile tile--video tile--tall reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/lonely%20souljaz%20tour%20still.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/The%20Lonely%20Souljas%20Tour%20-%20Brisbane%20rush%201.mp4.mov"></div>
+          <div class="tile tile--video tile--tall reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20closefriends%20first%20event%20recap%20-%20VHS%20rush%201_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/closefriends%20first%20event%20recap%20-%20VHS%20rush%201.mov" data-video-title="Close Friends Promo">
+            <span class="tile__caption">Close Friends Promo</span>
+          </div>
 
-          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_02251%20edited.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_02251%20edited.png"></div>
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_02251%20edited.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_02251%20edited.png" data-image-title="ILNS Promoter Party">
+            <span class="tile__caption">ILNS Promoter Party</span>
+          </div>
 
-          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20PHA%243%200NE%20-%203AM%20SOLO%20EVENT%20rush%201_1.9.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/PHA%243%200NE%20-%203AM%20SOLO%20EVENT%20rush%201.mp4"></div>
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20HeyJune%20-%20london%20reel%201%20rush%201_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/HeyJune%20-%20london%20reel%201%20rush%201.mp4" data-video-title="HeyJune Promo Reel">
+            <span class="tile__caption">HeyJune Promo Reel</span>
+          </div>
 
-          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20YOUNGIE%20IN%20MELB%20-%20THREE%20NIGHTS%20rush%201_1.19.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/YOUNGIE%20IN%20MELB%20-%20THREE%20NIGHTS%20rush%201.mp4"></div>
+          <div class="tile tile--video tile--tall reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20BENZO%20-%20LABRADOR%20Official%20Music%20Video_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/BENZO%20-%20LABRADOR%20Official%20Music%20Video.mp4" data-video-title="Benzo - LABRADOR Official Music Video">
+            <span class="tile__caption">Benzo - LABRADOR Official Music Video</span>
+          </div>
 
-          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/P1001658%20edited.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/P1001658%20edited.png"></div>
+          <div class="tile tile--video tile--wide reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/lonely%20souljaz%20tour%20still.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/The%20Lonely%20Souljas%20Tour%20-%20Brisbane%20rush%201.mp4.mov" data-video-title="Lonely Souljaz Show in Brisbane">
+            <span class="tile__caption">Lonely Souljaz Show in Brisbane</span>
+          </div>
 
-          <div class="tile tile--video tile--wide reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20BENZO%20-%20LABRADOR%20Official%20Music%20Video_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/BENZO%20-%20LABRADOR%20Official%20Music%20Video.mp4"></div>
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/P1001658%20edited.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/P1001658%20edited.png" data-image-title="JUDD (artist)">
+            <span class="tile__caption">JUDD (artist)</span>
+          </div>
 
-          <div class="tile tile--video tile--tall reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_4779.png')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/Break%20the%20Speakers%20(Trailer).mp4"></div>
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20PHA%243%200NE%20-%203AM%20SOLO%20EVENT%20rush%201_1.9.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/PHA%243%200NE%20-%203AM%20SOLO%20EVENT%20rush%201.mp4" data-video-title="PHA$E ONE - 3AM Solo Event in Brisbane">
+            <span class="tile__caption">PHA$E ONE - 3AM Solo Event in Brisbane</span>
+          </div>
 
-          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_00318%20%40davesummerofficial%20himself.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_00318%20%40davesummerofficial%20himself.png"></div>
+          <div class="tile tile--photo reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_00318%20%40davesummerofficial%20himself.png')" data-image-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/XP_00318%20%40davesummerofficial%20himself.png" data-image-title="Dave Summers (DJ)">
+            <span class="tile__caption">Dave Summers (DJ)</span>
+          </div>
 
-          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20HeyJune%20-%20london%20reel%201%20rush%201_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/HeyJune%20-%20london%20reel%201%20rush%201.mp4"></div>
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/IMG_4779.png')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/Break%20the%20Speakers%20(Trailer).mp4" data-video-title="Break The Speakers Show (Trailer)">
+            <span class="tile__caption">Break The Speakers Show (Trailer)</span>
+          </div>
 
-          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20closefriends%20first%20event%20recap%20-%20VHS%20rush%201_1.1.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/closefriends%20first%20event%20recap%20-%20VHS%20rush%201.mov"></div>
+          <div class="tile tile--video reveal" style="background-image:url('https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/still%20-%20YOUNGIE%20IN%20MELB%20-%20THREE%20NIGHTS%20rush%201_1.19.1.jpg')" data-video-src="https://pub-abf7f4d526c74a9395309250df9e54ab.r2.dev/YOUNGIE%20IN%20MELB%20-%20THREE%20NIGHTS%20rush%201.mp4" data-video-title="Youngie - 3 Nights in Melbourne">
+            <span class="tile__caption">Youngie - 3 Nights in Melbourne</span>
+          </div>
         </div>
 
         <div style="display:flex; justify-content:center; margin-top:32px;">
@@ -1052,13 +1101,13 @@
             <p class="review-card__text">Really good on communication, very reliable, and delivered top quality work. Very happy with the results, keep up the good work.</p>
             <div class="review-card__author">
               <span class="review-card__name">Anh</span>
-              <span class="review-card__role">ilovenewsoul</span>
+              <span class="review-card__role">ILOVENEWSOUL</span>
             </div>
           </div>
 
           <div class="review-card reveal">
             <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Add client review here.</p>
+            <p class="review-card__text">Xander always captures energy perfectly. Professional, creative, and consistently delivers.</p>
             <div class="review-card__author">
               <span class="review-card__name">Jay</span>
               <span class="review-card__role">Havana RnB Nightclub</span>
@@ -1067,7 +1116,7 @@
 
           <div class="review-card reveal">
             <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Add client review here.</p>
+            <p class="review-card__text">Xander's understanding of our vision will never fail to reassure us. He always delivers high quality work and brings our brand to life.</p>
             <div class="review-card__author">
               <span class="review-card__name">Lucky</span>
               <span class="review-card__role">OMBRÉ STRADÁ</span>
@@ -1085,15 +1134,15 @@
           <div class="about__copy">
             <span class="kicker">About</span>
             <h2 style="margin-bottom:18px;">Stories shaped by sound</h2>
-            <p>Xander centers on emotion-focused visuals that feel elevated without being overdone. The style leans clean, cinematic, and culture-aware, shaped by rap and R&B aesthetics but flexible across films, live performances, portraits, promotional work, and rollout content.</p>
-            <p>Whether the brief is a full music video concept, artist stills, a cinematic deliverable, or post-production finishing, the goal is the same: we make the memory worth reliving.</p>
+            <p>Xander creates cinematic, emotion-driven visuals that feel elevated without feeling overdone. The work is clean, intentional, and culture-aware, shaped by a strong connection to music and a modern visual style while remaining flexible across promotional and brand films, campaigns, live events, weddings, and artist-led projects.</p>
+            <p>From music videos and artist content to DJ and club coverage, campaign packages, photography, and post-production through editing and colour grading, every project is approached with the same focus: creating visuals that capture how something felt, not just how it looked; making the memory worth reliving.</p>
             
           </div>
 
           <div class="stats">
             <div class="stat">
-              <strong>Music-First</strong>
-              <span>Concepts shaped around tracks, energy, audience, and emotion.</span>
+              <strong>Culture-Aware</strong>
+              <span>Concepts shaped by culture, energy, audience, and emotion.</span>
             </div>
             <div class="stat">
               <strong>Fast Turnaround</strong>
@@ -1143,7 +1192,7 @@
         <div class="contact-panel reveal">
           <span class="kicker">Contact</span>
           <h2 style="max-width:10ch; margin-bottom:18px;">Let’s curate something that relives your moment</h2>
-          <p class="lede">Use the form to enquire about music videos, artist photography, event coverage, and more.</p>
+          <p class="lede">Use the form to enquire about media, photography, packages, and more.</p>
 
           <div class="contact-list">
             <div class="contact-item">
@@ -1184,16 +1233,17 @@
               <label>
                 Project Type
                 <select name="project_type" required>
-                  <option>Media</option>
-                  <option>Show / Event Recap</option>
-                  <option>Promotional Video</option>
-                  <option>Wedding</option>
-                  <option>Music Video</option>
+                  <option>Events & Live Performances</option>
+                  <option>Promotional & Brand Films</option>
+                  <option>Campaigns & Content Packages</option>
+                  <option>Wedding Films</option>
+                  <option>Music Videos</option>
+                  <option>Artist & Music Content</option>
+                  <option>DJ & Club Content</option>
                   <option>Photography</option>
-                  <option>Full Promotional Rollout (Package)</option>
-                  <option>Editing</option>
+                  <option>Video Editing</option>
                   <option>Colour Grading</option>
-                  <option>Other / Specific</option>
+                  <option>Other</option>
                 </select>
               </label>
               <label>
@@ -1205,7 +1255,7 @@
                   <option>$1,000 - $1,500</option>
                   <option>$1,500 - $2,000</option>
                   <option>$2,000 ></option>
-                  <option>Other / Specific</option>
+                  <option>Other</option>
                 </select>
               </label>
             </div>
@@ -1235,7 +1285,7 @@
   <div class="lightbox" id="imageLightbox" aria-hidden="true">
     <div class="lightbox__panel">
       <div class="lightbox__topbar">
-        <div class="lightbox__title">Project Photo</div>
+        <div class="lightbox__title" id="imageLightboxTitle">Project Photo</div>
         <button class="lightbox__close" id="imageLightboxClose" type="button" aria-label="Close image">✕</button>
       </div>
       <img id="lightboxImage" src="" alt="Project photo" />
@@ -1338,11 +1388,13 @@
 
     const imageLightbox = document.getElementById('imageLightbox');
     const lightboxImage = document.getElementById('lightboxImage');
+    const imageLightboxTitle = document.getElementById('imageLightboxTitle');
     const imageLightboxClose = document.getElementById('imageLightboxClose');
     const openImageButtons = document.querySelectorAll('[data-image-src]');
 
-    const openImageLightbox = (src) => {
+    const openImageLightbox = (src, title) => {
       lightboxImage.src = src;
+      imageLightboxTitle.textContent = title || 'Project Photo';
       imageLightbox.classList.add('open');
       imageLightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -1358,7 +1410,7 @@
     openImageButtons.forEach(tile => {
       tile.addEventListener('click', () => {
         currentTileIndex = projectTiles.indexOf(tile);
-        openImageLightbox(tile.dataset.imageSrc);
+        openImageLightbox(tile.dataset.imageSrc, tile.dataset.imageTitle);
       });
     });
 
@@ -1384,7 +1436,7 @@
       } else if (tile.dataset.imageSrc) {
         if (isVideoOpen) closeLightbox();
         currentTileIndex = index;
-        openImageLightbox(tile.dataset.imageSrc);
+        openImageLightbox(tile.dataset.imageSrc, tile.dataset.imageTitle);
       }
     };
 
