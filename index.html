@@ -151,6 +151,12 @@
       background: linear-gradient(180deg, transparent, var(--bg));
     }
 
+    .hero__top {
+      position: absolute;
+      inset: 100px 0 auto;
+      z-index: 2;
+    }
+
     .hero__grid {
       position: relative;
       z-index: 1;
@@ -307,6 +313,26 @@
     }
 
     #reviews {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #stats-highlights {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #about {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #services {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #contact {
       padding-top: 40px;
     }
 
@@ -632,26 +658,46 @@
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 18px;
     }
 
     .stat {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07);
+      position: relative;
+      overflow: hidden;
+      padding: 34px 28px;
+      border-radius: calc(var(--radius) + 6px);
+      background: linear-gradient(160deg, rgba(214,176,122,.1), rgba(255,255,255,.03) 60%);
+      border: 1px solid rgba(214,176,122,.25);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 60%;
+      aspect-ratio: 1;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(214,176,122,.16), transparent 70%);
+      pointer-events: none;
     }
 
     .stat strong {
       display: block;
-      font-size: 1.65rem;
-      margin-bottom: 6px;
+      font-size: 2rem;
+      margin-bottom: 12px;
       letter-spacing: -.04em;
+      color: var(--accent);
     }
 
     .stat span {
       color: var(--muted);
-      font-size: .9rem;
+      font-size: .95rem;
+      line-height: 1.5;
     }
 
     .reviews-grid {
@@ -705,6 +751,39 @@
 
     .review-card__toggle:hover {
       text-decoration: underline;
+    }
+
+    .review-card__excerpt-wrap {
+      position: relative;
+    }
+
+    .review-card__text--clamped {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-height: 6.2em;
+    }
+
+    .review-card__fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 48px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 4px;
+      backdrop-filter: blur(3px);
+      background: linear-gradient(180deg, rgba(20,17,15,0), rgba(20,17,15,.55) 60%);
+    }
+
+    .review-card__fade .review-card__toggle {
+      background: rgba(20,17,15,.85);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      padding: 6px 16px;
     }
 
     .review-card__author {
@@ -967,6 +1046,16 @@
     @media (max-width: 760px) {
       .nav__toggle { display: inline-grid; place-items: center; }
 
+      .lightbox {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 20px 16px 40px;
+      }
+
+      .lightbox__panel {
+        margin: 0 auto;
+      }
+
       .nav__links {
         position: absolute;
         top: calc(100% + 10px);
@@ -992,6 +1081,10 @@
       .nav__links.open { max-height: 400px; pointer-events: auto; }
 
       .hero { min-height: auto; padding-top: 112px; }
+      .hero__top {
+        position: static;
+        margin-bottom: 24px;
+      }
       .hero__meta,
       .stats,
       .form-grid,
@@ -1041,10 +1134,13 @@
   </nav>
 
   <header class="hero" id="home">
+    <div class="hero__top container reveal">
+      <div class="eyebrow">Gold Coast Director • Cinematic Visuals</div>
+      <h1>STORIES<br>MADE TO<br>BE FELT</h1>
+    </div>
+
     <div class="container hero__grid">
       <div class="reveal">
-        <div class="eyebrow">Gold Coast Director • Cinematic Visuals</div>
-        <h1>RELIVE NOSTALGIC MOMENTS, PERFECTLY</h1>
         <p>
           Xander Pappos is a Queensland based director, videographer, editor, and colourist creating clean, cinematic visuals for music videos, live performances, promotional content, and more.
         </p>
@@ -1171,7 +1267,18 @@
 
           <div class="review-card reveal">
             <div class="review-card__stars">★★★★★</div>
-            <p class="review-card__text">Xander always captures energy perfectly. Professional, creative, and consistently delivers.</p>
+            <div class="review-card__excerpt-wrap">
+              <div class="review-card__text review-card__text--clamped">
+                <p>We’ve had the pleasure of working with Xander on multiple events at Havana, and he’s been amazing to work with from start to finish.</p>
+              </div>
+              <div class="review-card__fade">
+                <button type="button" class="review-card__toggle">Read more</button>
+              </div>
+            </div>
+            <div class="review-card__more" hidden>
+              <p>His creativity, professionalism and attention to detail really stand out. He knows how to capture the energy of the venue, the crowd and the DJs in a way that makes every event look and feel bigger. The final videos are always high quality, engaging and perfect for our social media and promotions.</p>
+              <p>Xander is reliable, easy to work with and always brings his own creative ideas to the table. We’d definitely recommend him to any venue, promoter or event looking for a videographer who understands nightlife and knows how to capture the right moments.</p>
+            </div>
             <div class="review-card__author">
               <span class="review-card__name">Jay</span>
               <span class="review-card__role">Havana RnB Nightclub</span>
@@ -1180,15 +1287,19 @@
 
           <div class="review-card reveal">
             <div class="review-card__stars">★★★★★</div>
-            <div class="review-card__text">
-              <p>Working with Xander has genuinely been a great experience. What I appreciate most is that he doesn’t just show up, film something and hand over an edit, he actually takes the time to understand the vision, the story and what you’re trying to achieve with the final product.</p>
-              <div class="review-card__more" hidden>
-                <p>I’ve worked with him across different projects for OMBRÉ STRADÀ, and he’s consistently been easy to communicate with, open to feedback and willing to go back and forth creatively until we’re both happy with the result. At the same time, he brings his own ideas and perspective to the table, which is exactly what you want from someone in a creative role.</p>
-                <p>His understanding of cinematography, pacing and storytelling has continued to improve with every project, and you can tell he genuinely cares about the quality of his work rather than just getting something finished. Even when I’ve given him quite detailed briefs, he’s been able to understand what I’m envisioning and translate that into something that still feels like his own work creatively.</p>
-                <p>Beyond the work itself, Xander is reliable, passionate about what he does and genuinely enjoyable to work with. I’m looking forward to continuing to work with him as both of our creative projects grow, and I’d have no hesitation recommending him to anyone looking for a videographer or cinematographer who actually cares about bringing their vision to life.</p>
+            <div class="review-card__excerpt-wrap">
+              <div class="review-card__text review-card__text--clamped">
+                <p>Working with Xander has genuinely been a great experience. What I appreciate most is that he doesn’t just show up, film something and hand over an edit, he actually takes the time to understand the vision, the story and what you’re trying to achieve with the final product.</p>
+              </div>
+              <div class="review-card__fade">
+                <button type="button" class="review-card__toggle">Read more</button>
               </div>
             </div>
-            <button type="button" class="review-card__toggle">Read more</button>
+            <div class="review-card__more" hidden>
+              <p>I’ve worked with him across different projects for OMBRÉ STRADÀ, and he’s consistently been easy to communicate with, open to feedback and willing to go back and forth creatively until we’re both happy with the result. At the same time, he brings his own ideas and perspective to the table, which is exactly what you want from someone in a creative role.</p>
+              <p>His understanding of cinematography, pacing and storytelling has continued to improve with every project, and you can tell he genuinely cares about the quality of his work rather than just getting something finished. Even when I’ve given him quite detailed briefs, he’s been able to understand what I’m envisioning and translate that into something that still feels like his own work creatively.</p>
+              <p>Beyond the work itself, Xander is reliable, passionate about what he does and genuinely enjoyable to work with. I’m looking forward to continuing to work with him as both of our creative projects grow, and I’d have no hesitation recommending him to anyone looking for a videographer or cinematographer who actually cares about bringing their vision to life.</p>
+            </div>
             <div class="review-card__author">
               <span class="review-card__name">Lucky</span>
               <span class="review-card__role">OMBRÉ STRADÀ</span>
@@ -1200,6 +1311,13 @@
 
     <section id="stats-highlights">
       <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Workflow</span>
+            <h2>Three elements that shape every project</h2>
+          </div>
+        </div>
+
         <div class="stats">
           <div class="stat reveal">
             <strong>Culture-Aware</strong>
@@ -1224,9 +1342,9 @@
         <div class="about__text reveal">
           <div class="about__copy">
             <span class="kicker">About</span>
-            <h2 style="margin-bottom:18px;">Stories shaped by sound</h2>
-            <p>Xander creates cinematic, emotion-driven visuals that feel elevated without feeling overdone. The work is clean, intentional, and culture-aware, shaped by a strong connection to music and a modern visual style while remaining flexible across promotional and brand films, campaigns, live events, weddings, and artist-led projects.</p>
-            <p>From music videos and artist content to DJ and club coverage, campaign packages, photography, and post-production through editing and colour grading, every project is approached with the same focus: creating visuals that capture how something felt, not just how it looked; making the memory worth reliving.</p>
+            <h2 style="margin-bottom:18px;">Stories shaped by sound and emotion</h2>
+            <p>Xander creates cinematic, emotion-driven visuals built around atmosphere, movement, and human connection. His work feels elevated without feeling overdone; clean, intentional, culture-aware, and rooted in human emotion and the subtle moments that give a story its soul. With a growing passion for cinematography and film, his visual approach combines a contemporary style with a focus on creating work that feels immersive, authentic, and purposeful rather than simply polished.</p>
+            <p>Working across promotional and brand films, campaigns, live events, weddings, music videos, artist-led projects, and narrative work, Xander brings the same cinematic approach to every story. Whether capturing a performance, a fleeting moment, or something entirely imagined, the focus isn't simply on how something looked, but on how it felt; creating something worth feeling, remembering, and reliving.</p>
           </div>
         </div>
       </div>
@@ -1237,26 +1355,26 @@
         <div class="section-head reveal">
           <div>
             <span class="kicker">Services</span>
-            <h2>Curating a time capsule for every special moment</h2>
+            <h2>Cinematic stories, shaped with intention</h2>
           </div>
-          <p>We focus on helping you relive your most meaningful moments by capturing every detail with intention. From working directly with artists, DJs and clubs to cinematic, professional visuals for brands and businesses of all scales, we create work that enhances quality while preserving that authentic, feel-good energy.</p>
+          <p>We create cinematic work with intention, capturing the moments, energy, and emotion that make a story worth remembering. From artist-led projects, live experiences, and campaigns to brands, businesses, and narrative work, every project is approached with a focus on authentic storytelling, considered visuals, and a finish that feels elevated without losing what made the moment real.</p>
         </div>
 
         <div class="services">
           <article class="card reveal">
             <span class="card__number">01</span>
-            <h3>Music Focused</h3>
-            <p>Specialising in production for shows, clubs, touring artists and DJ's, promo content, etc.</p>
+            <h3>Music & Artist Work</h3>
+            <p>Cinematic coverage for shows, clubs, touring artists and DJs, built around energy, atmosphere, and the moments that make a set unforgettable.</p>
           </article>
           <article class="card reveal">
             <span class="card__number">02</span>
-            <h3>Commercial</h3>
-            <p>Specified for businesses and similar clientele, we offer a team to ensure your needs are met to detail.</p>
+            <h3>Commercial & Brand</h3>
+            <p>Considered, story-driven visuals for businesses and brands, crafted with the same intention and cinematic finish as our narrative work.</p>
           </article>
           <article class="card reveal">
             <span class="card__number">03</span>
             <h3>Photography</h3>
-            <p>Press shots, covers, promo images, and social-first stills with a cinematic, clean, high-end look.</p>
+            <p>Stills that carry the same cinematic tone as our film work: clean, atmospheric, and built to capture a feeling, not just a moment.</p>
           </article>
         </div>
       </div>
@@ -1266,7 +1384,7 @@
       <div class="container contact">
         <div class="contact-panel reveal">
           <span class="kicker">Contact</span>
-          <h2 style="max-width:10ch; margin-bottom:18px;">Let’s curate something that relives your moment</h2>
+          <h2 style="max-width:10ch; margin-bottom:18px;">Let’s create something worth reliving</h2>
           <p class="lede">Use the form to enquire about media, photography, packages, and more.</p>
 
           <div class="contact-list">
